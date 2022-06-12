@@ -1,11 +1,12 @@
-import mongoose, { mongo } from "mongoose";
-import Intern from "../models/Intern";
+import mongoose from "mongoose";
+import Intern from "../models/Intern.js";
 import signale from "signale";
 
 export default class Database {
     constructor(mongoURL) {
         mongoose.connect(mongoURL, {
             useNewURLParser: true,
+            useUnifiedTopology: true,
         })
         .then(() => {
             signale.success("Database Connected!");
@@ -21,7 +22,7 @@ export default class Database {
      * @param {String} lastName 
      * @param {String} email 
      * @param {String} favoriteFood 
-     * @returns {String} User created successfully/failed message
+     * @returns {String} Intern created successfully/failed message
      */
     async createIntern(firstName, lastName, email, favoriteFood) {
         try {
@@ -35,9 +36,25 @@ export default class Database {
                 favoriteFood: favoriteFood
             })
 
-            return signale.success("User Created Successfully!");
+            return signale.success("Intern Created Successfully!");
         } catch(err) {
-            return signale.error("Couldn't Create User", err);
+            return signale.error("Couldn't Create Intern.", err);
         }
+    }
+
+    /**
+     * Deletes Intern from MongoDB
+     * @param {String} email
+     * @returns {String} Intern deleted successfully/failed message
+    */
+    async deleteIntern(email) {
+        const removeFlag = await Intern.deleteOne({email: email});
+        
+        // If removeFlag is equal to 0, intern is deleted
+        if(!removeFlag.deletedCount) {
+            return signale.error("Couldn't Find Intern.");
+        }
+
+        return signale.success("Successfully Deleted Intern.")
     }
 }
