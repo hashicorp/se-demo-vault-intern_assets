@@ -57,4 +57,31 @@ export default class Database {
 
         return signale.success("Successfully Deleted Intern.")
     }
+
+    /**
+     * 
+     * @param {String} email 
+     * @returns intern object
+     */
+    async findIntern(email) {
+        const intern = await Intern.findOne({email: email});
+        if(!intern) {
+            return signale.error("Couldn't Find Intern.");
+        }
+
+        return intern;
+    }
+
+    /**
+     * Get all interns from MongoDB
+     */
+    async getAllInterns() {
+        try {
+            const interns = await Intern.find();
+            return interns;
+        } catch(err) {
+            signale.error("Couldn't Find Interns.", err);
+        }
+        
+    }
 }
