@@ -19,6 +19,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "mongoose": "^6.3.6",
+    "node-vault": "^0.9.22",
     "signale": "^1.4.0"
   }
 }
