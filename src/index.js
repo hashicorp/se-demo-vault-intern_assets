@@ -3,12 +3,15 @@ const router = express.Router();
 const app = express();
 const port = 3000;
 
+const apiRouter = require("./routes/api.js");
+
 const path = require("path");
 
 app.use(express.static(path.join(__dirname, 'public')));
-
-app.use("/routes/api", require("./routes/api"));
-
+app.use(express.urlencoded({
+    extended: true
+  }));
+app.use("/api", apiRouter);
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/home.html"));
 });

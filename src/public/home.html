@@ -34,14 +34,13 @@
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
-                    <form action="/api/getUser" method="POST">
+                    <form action="/api/getUser" method="post">
                         <div class="form-group" id="findUserForm">
                             <label for="emailInput" id="emailLabel">Email Address</label>
                             <br>
-                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="Enter email"></input>
+                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="Enter email" name="email"></input>
                         </div>
-
-                        <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
+                        <input type="submit" class="btn btn-primary" id="submitBtn"></input>
                     </form>
               </li>
 
