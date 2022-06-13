@@ -1,0 +1,17 @@
+#modalContent {
+    padding-bottom: 4%;
+}
+
+#findUserForm {
+    padding-left: 3%;
+}
+
+#emailInput {
+    width: 50%;
+}
+
+#submitBtn {
+    right: 5%;
+    position: absolute;
+    bottom: 20%;
+}
