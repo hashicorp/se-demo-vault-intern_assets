@@ -1,15 +1,13 @@
-import express from "express";
+const express = require("express");
 const router = express.Router();
 const app = express();
 const port = 3000;
 
-import path from 'path';
-import {fileURLToPath} from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const path = require("path");
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use("/routes/api", require("./routes/api"));
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/home.html"));
@@ -36,5 +34,5 @@ app.get("/", (req, res) => {
 // });
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
+    console.log(`Intern Hub listening at http://localhost:${port}`)
 });

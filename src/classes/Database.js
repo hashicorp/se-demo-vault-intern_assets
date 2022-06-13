@@ -1,8 +1,8 @@
-import mongoose from "mongoose";
-import Intern from "../models/Intern.js";
-import signale from "signale";
+const mongoose = require("mongoose");
+const Intern = require("../models/Intern.js");
+const signale = require("signale");
 
-export default class Database {
+module.exports = class Database {
     constructor(mongoURL) {
         mongoose.connect(mongoURL, {
             useNewURLParser: true,

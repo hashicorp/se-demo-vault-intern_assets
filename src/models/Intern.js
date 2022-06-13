@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose")
 
 const InternSchema = new mongoose.Schema({
     firstName: {type: String, required: true},
@@ -8,4 +8,4 @@ const InternSchema = new mongoose.Schema({
 })
 
 const Intern = mongoose.model("Intern", InternSchema);
-export default Intern;
+module.exports = Intern;
