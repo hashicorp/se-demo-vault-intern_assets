@@ -1,4 +1,5 @@
 const express = require("express");
+const session = require("express-session");
 const app = express();
 const router = express.Router();
 const bodyParser = require("body-parser");
@@ -23,9 +24,17 @@ router.post("/getUser", (req, res) => {
         }
         )
         .catch((err) => {
-            res.send(err);
-        }
-        );
+            req.session.error = err;
+            console.log(req.session.error)
+            console.log("Req Session Error from getUser: " + JSON.stringify(req.session));
+            res.redirect("/api/error");
+        });
+});
+
+//Error Route
+router.get("/error", (req, res) => {
+    console.log("req.session.error from error route: " + JSON.stringify(req.session));
+    res.send(req.session.error);
 });
 
 module.exports = router;

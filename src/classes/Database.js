@@ -66,7 +66,7 @@ module.exports = class Database {
     async findIntern(email) {
         const intern = await Intern.findOne({email: email});
         if(!intern) {
-            return signale.error("Couldn't Find Intern.");
+            throw new Error("Couldn't Find Intern.");
         }
 
         return intern;

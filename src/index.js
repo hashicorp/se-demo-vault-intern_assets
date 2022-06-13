@@ -1,4 +1,5 @@
 const express = require("express");
+const session = require("express-session");
 const router = express.Router();
 const app = express();
 const port = 3000;
@@ -11,6 +12,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({
     extended: true
   }));
+
+app.use(session({
+    secret: "secret",
+    resave: true,
+    saveUninitialized: false,
+    cookie: {
+        secure: false,
+    }
+}));
+
+
 app.use("/api", apiRouter);
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/home.html"));
