@@ -1,6 +1,5 @@
 const express = require("express");
-const session = require("express-session");
-const app = express();
+const store = require("store2");
 const router = express.Router();
 const bodyParser = require("body-parser");
 
@@ -14,8 +13,7 @@ const Database = require("../classes/Database.js");
 
 const database = new Database(process.env.MONGO_URL);
 
-
-//All Users Information Route
+// User Information Route
 router.post("/getUser", (req, res) => {
     const email = req.body.email;
     database.findIntern(email)
@@ -24,17 +22,17 @@ router.post("/getUser", (req, res) => {
         }
         )
         .catch((err) => {
-            req.session.error = err;
-            console.log(req.session.error)
-            console.log("Req Session Error from getUser: " + JSON.stringify(req.session));
-            res.redirect("/api/error");
+            store("Error", `${err}`);
+            res.redirect("/api/error")
+            
         });
 });
 
 //Error Route
 router.get("/error", (req, res) => {
-    console.log("req.session.error from error route: " + JSON.stringify(req.session));
-    res.send(req.session.error);
+    res.send({
+        error: store("Error"),
+    });
 });
 
 module.exports = router;
