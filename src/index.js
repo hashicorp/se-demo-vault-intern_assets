@@ -22,6 +22,10 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/home.html"));
 });
 
+app.get("/createIntern", (req, res) => {
+    res.sendFile(path.join(__dirname, "/public/createIntern.html"));
+});
+
 app.listen(port, () => {
     console.log(`Intern Hub listening at http://localhost:${port}`)
 });

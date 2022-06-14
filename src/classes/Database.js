@@ -27,18 +27,26 @@ module.exports = class Database {
     async createIntern(firstName, lastName, email, favoriteFood) {
         try {
             const intern = await Intern.findOne({email: email});
-            signale.start("Creating User...");
 
-            await Intern.create({
+            if(intern) {
+                return "Intern already exists";
+            } else {
+                signale.start("Creating User...");
+
+                await Intern.create({
                 firstName: firstName,
                 lastName: lastName,
                 email: email,
                 favoriteFood: favoriteFood
-            })
+                });
 
-            return signale.success("Intern Created Successfully!");
+                signale.success("Intern Created Successfully!");
+                return "Intern Created Successfully!";
+            }
+            
         } catch(err) {
-            return signale.error("Couldn't Create Intern.", err);
+            throw new Error("Couldn't Create Intern.", err);
+            // return "Couldn't Create Intern. Check Server log for more details.";
         }
     }
 
