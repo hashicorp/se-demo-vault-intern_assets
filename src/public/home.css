@@ -1,21 +1,39 @@
-#modalDialog {
-    padding-top: 19%
+/* #modalDialog {
+    padding-top: 15%
+} */
+
+#loginModalContent {
+    padding-bottom: 4%;
 }
 
-#modalContent {
-    padding-bottom: 4%;
+#registerModalBody {
+    padding-left: 1rem;
+    padding-top: 0rem;
 }
 
 #findUserForm {
     padding-left: 3%;
 }
 
-#emailInput {
+#usernameInput {
     width: 50%;
+}
+
+#registerUsernameInput {
+    width: 50%;
+    top: 0%;
+}
+
+#passwordInput {
+    width: 50%
 }
 
 #submitBtn {
     right: 5%;
     position: absolute;
-    bottom: 20%;
+    bottom: 10%;
+}
+
+input + label {
+    margin-top: 3%;
 }

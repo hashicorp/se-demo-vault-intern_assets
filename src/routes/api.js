@@ -13,8 +13,8 @@ const Database = require("../classes/Database.js");
 
 const database = new Database(process.env.MONGO_URL);
 
-// User Information Route
-router.post("/getIntern", (req, res) => {
+// Login User
+router.post("/login", (req, res) => {
     const email = req.body.email;
     database.findIntern(email)
         .then((user) => {
@@ -28,7 +28,7 @@ router.post("/getIntern", (req, res) => {
         });
 });
 
-router.post("/createIntern", (req, res) => {
+router.post("/register", (req, res) => {
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
     const email = req.body.email;
