@@ -48,8 +48,6 @@ MONGO_URL="<YOUR_MONGO_URL>"
 ```
 $ npm start
 ```
-
-
 **That's it, very simple.**
 
 ## Authors

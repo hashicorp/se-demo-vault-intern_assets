@@ -8,9 +8,11 @@ require("dotenv").config({
     path: path.join(__dirname, "../../.env")
 });
 
+const Vault = require("../classes/Vault");
+const vault = new Vault(1, 1);
 const Database = require("../classes/Database.js");
-
 const database = new Database(process.env.MONGO_URL);
+
 
 // Login User
 router.post("/login", (req, res) => {
@@ -43,6 +45,12 @@ router.post("/register", (req, res) => {
         }
         );
 });
+
+router.get("/test", (req, res) => {
+    const test = vault.encryptPassword("hello");
+
+    res.send(test);
+})
 
 //Error Route
 router.get("/error", (req, res) => {

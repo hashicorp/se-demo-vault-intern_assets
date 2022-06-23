@@ -1,19 +1,32 @@
-// import signale from "signale"
-// const vaultOptions = require("../../config/vaultOptions.json");
-// const vault = require("node-vault")(vaultOptions);
+const signale = require("signale")
 
-// export default class Vault {
-//     constructor() {
-//         vault.init({secret_shares: 1, secret_threshold: 1})
-//         .then((result) => {
-//             const keys = result.keys;
-//             //set token for all following requests
-//             vault.token = result.root_token;
-//             //unseal vault server
-//             return vault.unseal({secret_shares: 1, key: keys[0]})
-//         }).catch((err) => {
-//             signale.error(err);
-//         })
-//     }
+const vaultOptions = require("../config/vaultOptions.json");
 
-// }
+const vault = require("node-vault")(vaultOptions);
+
+module.exports = class Vault {
+    constructor(secretShares, secretThreshold) {
+        vault.init({
+            secret_shares: secretShares,
+            secret_threshold: secretThreshold,
+        })
+        .then((result) => {
+            signale.success("Vault Server Initialized!");
+
+            const keys = result.keys;
+            vault.token = result.root_token;
+            return vault.unseal({
+                secret_shares: secret_shares,
+                key: keys[0],
+            });
+        })
+        .catch((err) => {
+            signale.error(err);
+        })
+    }
+
+    async encryptPassword(password) {
+       return vault.encryptPassword(password);
+    }
+
+}
