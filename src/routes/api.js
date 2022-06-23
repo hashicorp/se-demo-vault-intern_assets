@@ -29,12 +29,10 @@ router.post("/login", (req, res) => {
 });
 
 router.post("/register", (req, res) => {
-    const firstName = req.body.firstName;
-    const lastName = req.body.lastName;
-    const email = req.body.email;
-    const favoriteFood = req.body.favoriteFood;
+    const username = req.body.username;
+    const password = req.body.password;
 
-    database.createIntern(firstName, lastName, email, favoriteFood)
+    database.createUser(username, password)
         .then((message) => {
             res.send({
                 message: message
