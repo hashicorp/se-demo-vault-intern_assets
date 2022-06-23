@@ -28,9 +28,15 @@ $ cd internvault/
 ```
 
 * Create a .env file under the root directory.
+**MacOS/Linux**
 ```
 $ touch .env
 ```
+
+**Windows**
+```
+$ type nul > .env
+``` 
 
 * In your newly created .env file, store your MongoDB connection URL.
 ```
