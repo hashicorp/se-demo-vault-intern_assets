@@ -28,6 +28,7 @@ $ cd internvault/
 ```
 
 * Create a .env file under the root directory.
+
 **MacOS/Linux**
 ```
 $ touch .env
