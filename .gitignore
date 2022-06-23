@@ -1,3 +1,4 @@
 node_modules/
 vault_help.txt
 .env
+.*
