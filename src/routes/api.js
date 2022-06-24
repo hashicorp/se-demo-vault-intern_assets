@@ -11,6 +11,7 @@ require("dotenv").config({
 const Vault = require("../classes/Vault");
 const vault = new Vault(1, 1);
 const Database = require("../classes/Database.js");
+const signale = require("signale");
 const database = new Database(process.env.MONGO_URL);
 
 
@@ -33,24 +34,26 @@ router.post("/register", (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
-    database.createUser(username, password)
-        .then((message) => {
-            res.send({
-                message: message
-            });
-        })
-        .catch((err) => {
-            store("Error", `${err}`);
-            res.redirect("/api/error")
-        }
-        );
+    vault.encryptText(password)
+    .then((b64String) => {
+        signale.info(b64String);
+    })
+    .catch((err) => {
+        signale.error(err);
+    })
+
+    // database.createUser(username, password)
+    //     .then((message) => {
+    //         res.send({
+    //             message: message
+    //         });
+    //     })
+    //     .catch((err) => {
+    //         store("Error", `${err}`);
+    //         res.redirect("/api/error")
+    //     }
+    //     );
 });
-
-router.get("/test", (req, res) => {
-    const test = vault.encryptPassword("hello");
-
-    res.send(test);
-})
 
 //Error Route
 router.get("/error", (req, res) => {
