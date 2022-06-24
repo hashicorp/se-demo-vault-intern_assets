@@ -30,17 +30,42 @@ router.post("/login", (req, res) => {
         });
 });
 
-router.post("/register", (req, res) => {
+router.post("/register", async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
-    vault.encryptText(password)
-    .then((b64String) => {
-        signale.info(b64String);
-    })
-    .catch((err) => {
+    try {
+        vault.encryptText(password)
+            .then((result) => {
+                console.log(result);
+            });
+    } catch(err) {
         signale.error(err);
-    })
+    }
+    // try {
+    //     vault.encryptText(password)
+    //     .then((cipherText) => {
+    //         signale.info("CipherText: " + cipherText);
+    //     })
+    // } catch(err) {
+    //     signale.error(err);
+    // }
+    
+
+    // vault.encodeBase64(password)
+    // .then((base64String) => {
+    //     vault.encryptBase64(base64String)
+    //     .then((cipherText) => {
+    //         signale.info("Cipher Text: " + cipherText);
+    //     })
+    //     .catch((err) => {
+    //         signale.error("Couldn't encrypt base64: " + err);
+    //     })
+    // })
+    // .catch((err) => {
+    //     signale.error("Couldn't encode base64.")
+    // })
+    
 
     // database.createUser(username, password)
     //     .then((message) => {
