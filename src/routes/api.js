@@ -14,22 +14,6 @@ const Database = require("../classes/Database.js");
 const signale = require("signale");
 const database = new Database(process.env.MONGO_URL);
 
-
-// Login User
-router.post("/login", (req, res) => {
-    const email = req.body.email;
-    database.findIntern(email)
-        .then((user) => {
-            res.send(user);
-        }
-        )
-        .catch((err) => {
-            store("Error", `${err}`);
-            res.redirect("/api/error")
-            
-        });
-});
-
 router.post("/register", async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
@@ -38,9 +22,12 @@ router.post("/register", async (req, res) => {
         const encryptedString = await vault.encryptText(password);
         console.log(encryptedString);
 
-        const decryptedString = await vault.decryptText(encryptedString);
-
-        console.log(decryptedString);
+        try {
+            database.createUser(username, encryptedString);
+            res.redirect("/success");
+        } catch (err) {
+            throw new Error("Couldn't Create Intern - ", err);
+        }
     } catch(err) {
         signale.error(err);
     }
@@ -80,6 +67,32 @@ router.post("/register", async (req, res) => {
     //         res.redirect("/api/error")
     //     }
     //     );
+});
+
+router.post("/login", async (req, res) => {
+    const username = req.body.username;
+    const password = req.body.password;
+
+    signale.info("Password: " + password);
+
+    try {
+        const user = await database.findUser(username);
+
+        if(user) {
+            signale.info("Encrypted Password: " + user.password);
+            const decryptedString = await vault.decryptText(user.password);
+            const base64DecodedString = Buffer.from(decryptedString, "base64").toString("ascii");
+            if(base64DecodedString === password) {
+                res.redirect("/success");
+            } else {
+                store("Error", `Couldn't Login - Incorrect Username / Password`);
+                res.redirect("/api/error")
+            }
+        }
+    } catch (err) {
+        store("Error", `${err}`);
+        res.redirect("/api/error")
+    }
 });
 
 //Error Route

@@ -37,13 +37,31 @@ module.exports = class Database {
                });
 
                signale.success("User Created Successfully!");
-               return "User Created Successfully"
+               return "User Created Successfully";
             }
         } catch (err) {
             throw new Error("Couldn't Create Intern - ", err);
         }
     }
 
+    /**
+     * (Assumption) All usernames are unique.
+     * @param {String} username 
+     */
+    async findUser(username) {
+        try {
+            const user = await User.findOne({username: username});
+
+            if(user != null) {
+                return user;
+            } else {
+                return null;
+            }
+        }
+        catch (err) {
+            throw new Error("Couldn't Find User - ", err);
+        }
+    }
 
     // /**
     //  * Creates Intern in MongoDB 
