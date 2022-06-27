@@ -54,18 +54,29 @@ module.exports = class Vault {
         .catch((err) => {
             signale.error(err);
         });
+    }
 
-        
-        // vault.write("transit/encrypt/my-key", {value: base64String})
-        // .then(() => {
-        //     signale.info("Entered read block.");
-        //     // return cipherText;
-        //     return vault.read("transit/encrypt/my-key");
-        // })
-        // .catch((err) => {
-        //    throw new Error(err);
-        // })
+    async decryptText(cipherText) {
+        return axios({
+            method: "post",
+            url: `${vaultOptions.endpoint}/v1/transit/decrypt/my-key`,
 
+            headers : {
+                'X-Vault-Token' : vaultOptions.token,
+                'Content-Type' : "application/json",
+            },
+
+            data : {
+                "ciphertext": cipherText
+            }
+        })
+        .then((response) => {
+            signale.success("Text Decrypted!");
+            return response.data.data.plaintext;
+        })
+        .catch((err) => {
+            signale.error("Couldn't Decrypt Text: " + err);
+        });
     }
 
     // async encodeBase64(text) {
