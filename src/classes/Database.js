@@ -45,7 +45,7 @@ module.exports = class Database {
     }
 
     /**
-     * (Assumption) All usernames are unique.
+     * 
      * @param {String} username 
      */
     async findUser(username) {
