@@ -35,10 +35,10 @@ router.post("/register", async (req, res) => {
     const password = req.body.password;
 
     try {
-        vault.encryptText(password)
-            .then((result) => {
-                console.log(result);
-            });
+        const encryptedString = await vault.encryptText(password);
+        console.log(encryptedString);
+
+        
     } catch(err) {
         signale.error(err);
     }

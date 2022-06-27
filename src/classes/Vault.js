@@ -3,10 +3,6 @@ const signale = require("signale")
 const vaultOptions = require("../config/vaultOptions.json");
 const vault = require("node-vault")(vaultOptions);
 
-signale.info(vaultOptions.endpoint);
-signale.info(vaultOptions.token);
-
-
 module.exports = class Vault {
     constructor(secretShares, secretThreshold) {
         vault.init({
@@ -38,7 +34,7 @@ module.exports = class Vault {
 
     async encryptText(text) {
 
-        axios({
+        return axios({
             method: "post",
             url: `${vaultOptions.endpoint}/v1/transit/encrypt/my-key`,
 
@@ -51,12 +47,9 @@ module.exports = class Vault {
                 "plaintext": Buffer.from(text).toString("base64")
             }
         })
-        .then(() => {
+        .then((response) => {
             signale.success("Text Encrypted!");
-        }).then((result) => {
-            return {
-                "cipherText" : result,
-            }
+            return response.data.data.ciphertext;
         })
         .catch((err) => {
             signale.error(err);
