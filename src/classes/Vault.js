@@ -15,21 +15,13 @@ module.exports = class Vault {
             const keys = result.keys;
             vault.token = result.root_token;
             return vault.unseal({
-                secret_shares: secret_shares,
+                secret_shares: secretShares,
                 key: keys[0],
             });
         })
         .catch((err) => {
             signale.error(err);
-        })
-
-        vault.write("transit/keys/my-key")
-        .then(() => {
-            signale.success("Named Encryption Key Created!")
-        })
-        .catch((err) => {
-            signale.error("Couldn't create named encryption key: " + err)
-        })
+        });
     }
 
     async encryptText(text) {
