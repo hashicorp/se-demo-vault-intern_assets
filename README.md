@@ -46,7 +46,7 @@ MONGO_URL="<YOUR_MONGO_URL>"
 
 * In the root directory of internvault/, run command:
 ```
-$ npm start
+$ bash vault.sh
 ```
 **That's it, very simple.**
 
