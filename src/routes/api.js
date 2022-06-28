@@ -9,7 +9,7 @@ require("dotenv").config({
 });
 
 const Vault = require("../classes/Vault");
-const vault = new Vault(1, 1);
+const vault = new Vault();
 const Database = require("../classes/Database.js");
 const signale = require("signale");
 const database = new Database(process.env.MONGO_URL);
@@ -20,8 +20,6 @@ router.post("/register", async (req, res) => {
 
     try {
         const encryptedString = await vault.encryptText(password);
-        console.log(encryptedString);
-
         try {
             database.createUser(username, encryptedString);
             res.redirect("/success");
