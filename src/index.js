@@ -26,6 +26,11 @@ app.get("/success", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/success.html"))
 })
 
+app.get("/error", (req, res) => {
+    res.sendFile(path.join(__dirname, "/public/error.html"))
+})
+
+
 app.listen(port, () => {
     console.log(`Intern Hub listening at http://localhost:${port}`)
 });

@@ -70,22 +70,19 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
-
-    signale.info("Password: " + password);
-
     try {
         const user = await database.findUser(username);
 
         if(user) {
-            signale.info("Encrypted Password: " + user.password);
             const decryptedString = await vault.decryptText(user.password);
             const base64DecodedString = Buffer.from(decryptedString, "base64").toString("ascii");
             if(base64DecodedString === password) {
                 res.redirect("/success");
             } else {
-                store("Error", `Couldn't Login - Incorrect Username / Password`);
-                res.redirect("/api/error")
+                res.redirect("/error")
             }
+        } else {
+            res.redirect("/error")
         }
     } catch (err) {
         store("Error", `${err}`);
