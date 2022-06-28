@@ -27,9 +27,7 @@
     font-size: 18px;
     font-variant: small-caps;
     font-weight: bold;
-    -webkit-transition: all 0.2s ease;
-    -moz-transition: all 0.2s ease;
-    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
   }
   
   #all:hover a {
