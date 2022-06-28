@@ -2,3 +2,5 @@ node_modules/
 vault_help.txt
 .env
 .*
+src/public/testHome.html
+src/public/testHome.css
