@@ -1,116 +1,115 @@
-/* #modalDialog {
-    padding-top: 15%
-} */
-
-#loginModalContent {
+#message {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
+    color: #fff;
+    padding: 30px;
+    margin-top: 12%;
+  }
+  
+  #all > ul {
+    list-style: none;
+    float: center;
+    width: 200px;
+    padding: 0 10px 0 0;
+  }
+  
+  #all a {
+    text-decoration: none;
+    display: block;
+    padding: 18px;
+    background: #1d252c;
+    border-radius: 3px;
+    color: #6b7278;
+    text-align: center;
+    margin: 0 0 3px 0;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    font-variant: small-caps;
+    font-weight: bold;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+  }
+  
+  #all:hover a {
+    opacity: 1.0;
+  }
+  
+  #all:hover ul:hover a {
+    opacity: 0.5;
+  }
+  
+  #all:hover ul:hover a:hover {
+    opacity: 1;
+  }
+  
+  #all:active a {
+    opacity: 1.0;
+  }
+  
+  #all:active ul:active a {
+    opacity: 0.5;
+  }
+  
+  #all:active ul:active a:active {
+    opacity: 0.9;
+  }
+  
+  label {
+    margin-right: 82%;
+  }
+  
+  #loginModalContent {
     padding-bottom: 4%;
-}
-
-#registerModalBody {
+  }
+  
+  #registerModalBody {
     padding-left: 1rem;
     padding-top: 0rem;
-}
-
-#findUserForm {
+  }
+  
+  #findUserForm {
     padding-left: 3%;
-}
-
-#usernameInput {
-    width: 50%;
-}
-
-#registerUsernameInput {
-    width: 50%;
+  }
+  
+  #usernameInput {
+    width: 200%;
+  }
+  
+  #passwordInput {
+    width: 200%;
+  }
+  
+  #passwordInputLabel {
+    width: 150%;
+    margin-left: -37%;
+  }
+  
+  #registerUsernameInput {
+    width: 75%;
     top: 0%;
-}
-
-#passwordInput {
-    width: 50%
-}
-
-#submitBtn {
+  }
+  
+  
+  #submitBtn {
     right: 5%;
     position: absolute;
     bottom: 10%;
-}
-
-input + label {
+  }
+  
+  input + label {
     margin-top: 3%;
-}
-
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-
-body {
-  background: #272727;
-  font-family: "Montserrat", sans-serif;
-}
-
-.navMenu {
-  position: absolute;
-  text-align: justify;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-.navMenu.space-around
-
-.navMenu a {
-  color: #f6f4e6;
-  text-decoration: none;
-  font-size: 1.2em;
-  text-transform: uppercase;
-  font-weight: 500;
-  display: inline-block;
-  width: 80px;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
-
-.navMenu a:hover {
-  color: #fddb3a;
-}
-
-.navMenu .dot {
-  width: 6px;
-  height: 6px;
-  background: #fddb3a;
-  border-radius: 50%;
-  opacity: 0;
-  -webkit-transform: translateX(30px);
-  transform: translateX(30px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
-
-.navMenu a:nth-child(1):hover ~ .dot {
-  -webkit-transform: translateX(30px);
-  transform: translateX(30px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  opacity: 1;
-}
-
-.navMenu a:nth-child(2):hover ~ .dot {
-  -webkit-transform: translateX(110px);
-  transform: translateX(110px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  opacity: 1;
-}
-
-.navMenu a:nth-child(3):hover ~ .dot {
-  -webkit-transform: translateX(200px);
-  transform: translateX(200px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  opacity: 1;
-}
+  }
+  
+  .form-group {
+    margin-right: 80%;
+  }
+  
+  #loginUsernameInput {
+    width: 218%;
+  }
+  
+  #loginPasswordInput {
+    width: 218%;
+  }
