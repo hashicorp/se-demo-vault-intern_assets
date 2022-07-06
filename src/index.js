@@ -19,15 +19,15 @@ app.use(express.urlencoded({
 app.use("/api", apiRouter);
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/home.html"));
+    res.sendFile(path.join(__dirname, "/public/html/home.html"));
 });
 
 app.get("/success", (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/success.html"))
+    res.sendFile(path.join(__dirname, "/public/html/success.html"))
 })
 
 app.get("/error", (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/error.html"))
+    res.sendFile(path.join(__dirname, "/public/html/error.html"))
 })
 
 

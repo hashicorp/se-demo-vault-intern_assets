@@ -1,0 +1,134 @@
+#message {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 22px;
+  color: #fff;
+  padding: 30px;
+  margin-top: 12%;
+}
+
+#all > ul {
+  list-style: none;
+  float: center;
+  width: 200px;
+  padding: 0 10px 0 0;
+}
+
+#all a {
+  text-decoration: none;
+  display: block;
+  padding: 18px;
+  background: #1d252c;
+  border-radius: 3px;
+  color: #6b7278;
+  text-align: center;
+  margin: 0 0 3px 0;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  font-variant: small-caps;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+#all:hover a {
+  opacity: 1.0;
+}
+
+#all:hover ul:hover a {
+  opacity: 0.5;
+}
+
+#all:hover ul:hover a:hover {
+  opacity: 1;
+}
+
+#all:active a {
+  opacity: 1.0;
+}
+
+#all:active ul:active a {
+  opacity: 0.5;
+}
+
+#all:active ul:active a:active {
+  opacity: 0.9;
+}
+
+div[class="form-group"] {
+  margin-right: 82%;
+  color: #F8F0E3;
+}
+
+#loginModalContent {
+  padding-bottom: 4%;
+}
+
+.modal-content {
+  background-color: #2c2f33;
+}
+
+h5 {
+  color: #F8F0E3;
+}
+
+form {
+  padding-top: 2%;
+}
+
+#registerModalBody {
+  padding-left: 1rem;
+  padding-top: 0rem;
+}
+
+#findUserForm {
+  padding-left: 3%;
+}
+
+#usernameInput {
+  width: 200%;
+}
+
+#passwordInput {
+  width: 200%;
+}
+
+#passwordInputLabel {
+  width: 150%;
+  margin-left: -34%;
+}
+
+#submitBtn {
+  right: 5%;
+  position: absolute;
+  bottom: 10%;
+}
+
+input + label {
+  margin-top: 3%;
+}
+
+.form-group {
+  margin-right: 80%;
+}
+
+
+
+#loginUsernameInput {
+  width: 218%;
+}
+
+#loginPasswordInput {
+  width: 218%;
+}
+
+#showPasswordCheckBox {
+  position: absolute;
+}
+
+#registerUsernameInput {
+  padding-right: 18%;
+}
+
+#showPasswordCheckboxLabel {
+  color: #F8F0E3
+}

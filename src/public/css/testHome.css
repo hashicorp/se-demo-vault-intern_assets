@@ -27,7 +27,9 @@
   font-size: 18px;
   font-variant: small-caps;
   font-weight: bold;
-  transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
 }
 
 #all:hover a {
@@ -56,23 +58,10 @@
 
 label {
   margin-right: 82%;
-  color: #F8F0E3;
 }
 
 #loginModalContent {
   padding-bottom: 4%;
-}
-
-.modal-content {
-  background-color: #2c2f33;
-}
-
-h5 {
-  color: #F8F0E3;
-}
-
-form {
-  padding-top: 2%;
 }
 
 #registerModalBody {
