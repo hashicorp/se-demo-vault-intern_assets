@@ -24,7 +24,7 @@ module.exports = class Database {
      */
     async createUser(username, password) {
         try {
-            const user = await User.findOne({username: username});
+            const user = await this.findUser(username);
 
             if(user != null) {
                 return "User already exists"
@@ -50,13 +50,7 @@ module.exports = class Database {
      */
     async findUser(username) {
         try {
-            const user = await User.findOne({username: username});
-
-            if(user != null) {
-                return user;
-            } else {
-                return null;
-            }
+            return await User.findOne({username: username});
         }
         catch (err) {
             throw new Error("Couldn't Find User - ", err);

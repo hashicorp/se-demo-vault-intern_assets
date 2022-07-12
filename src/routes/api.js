@@ -21,8 +21,15 @@ router.post("/register", async (req, res) => {
     try {
         const encryptedString = await vault.encryptText(password);
         try {
-            database.createUser(username, encryptedString);
-            res.redirect("/success");
+            if(await database.findUser(username) === null) {
+                database.createUser(username, encryptedString);
+                res.redirect("/success");
+            }
+            else {
+                signale.error("User already exists");
+                store("Error", "Username already exists");
+                res.redirect("/error");
+            }
         } catch (err) {
             throw new Error("Couldn't Create Intern - ", err);
         }
