@@ -44,7 +44,7 @@ $ type nul > .env
 MONGO_URL="<YOUR_MONGO_URL>"
 ```
 
-* In the root directory of internvault/, run command:
+* In the root directory of /internvault, run command:
 ```
 $ bash vault.sh
 ```
