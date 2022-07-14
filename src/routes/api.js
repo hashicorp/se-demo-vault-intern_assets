@@ -4,11 +4,9 @@ const router = express.Router();
 
 const path = require("path");
 
-// require("dotenv").config({
-//     path: path.join(__dirname, "../../.env")
-// });
-
-require("dotenv").config();
+require("dotenv").config({
+    path: "/etc/profile.d/instruqt-env.sh"
+});
 
 const Vault = require("../classes/Vault");
 const vault = new Vault();
