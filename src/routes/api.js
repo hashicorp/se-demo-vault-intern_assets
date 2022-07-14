@@ -13,9 +13,9 @@ const vault = new Vault();
 const Database = require("../classes/Database.js");
 const signale = require("signale");
 
-signale.info("ENV VARIABLES: ", process.env.MONGO_URL);
+// signale.info("ENV VARIABLES: ", process.env.MONGO_URL);
 
-const database = new Database(process.env.MONGO_URL);
+const database = new Database("mongodb://localhost:27017/instruqt");
 
 router.post("/register", async (req, res) => {
     const username = req.body.username;
