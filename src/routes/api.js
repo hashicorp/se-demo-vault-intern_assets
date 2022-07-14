@@ -12,6 +12,9 @@ const Vault = require("../classes/Vault");
 const vault = new Vault();
 const Database = require("../classes/Database.js");
 const signale = require("signale");
+
+signale.info("ENV VARIABLES: ", process.env.MONGO_URL);
+
 const database = new Database(process.env.MONGO_URL);
 
 router.post("/register", async (req, res) => {
