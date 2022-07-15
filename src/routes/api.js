@@ -35,6 +35,7 @@ router.post("/register", async (req, res) => {
         try {
             if(await database.findUser(username) === null) {
                 database.createUser(username, encryptedString);
+                console.log("Just created the user");
                 axios.get("/api/getUsers")
                 .then(() => {
                     signale.success("Refreshed /getUsers endpoint");
