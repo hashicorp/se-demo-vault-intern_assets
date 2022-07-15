@@ -5,6 +5,8 @@ const axios = require("axios").default;
 
 const path = require("path");
 
+signale.info("Node Enviroment: " + process.env.NODE_ENV);
+
 if(process.env.NODE_ENV === "production") {
     require("dotenv").config({
         path: "/etc/profile.d/instruqt-env.sh"
