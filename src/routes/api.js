@@ -4,9 +4,18 @@ const router = express.Router();
 
 const path = require("path");
 
-require("dotenv").config({
-    path: "/etc/profile.d/instruqt-env.sh"
-});
+if(process.env.NODE_ENV === "production") {
+    require("dotenv").config({
+        path: "/etc/profile.d/instruqt-env.sh"
+    });
+} else {
+    require("dotenv").config({
+        path: path.join(__dirname, "../../.env")
+    });    
+}
+
+
+
 
 const Vault = require("../classes/Vault");
 const vault = new Vault();
@@ -15,7 +24,9 @@ const signale = require("signale");
 
 // signale.info("ENV VARIABLES: ", process.env.MONGO_URL);
 
-const database = new Database("mongodb://localhost:27017/instruqt");
+// const database = new Database("mongodb://localhost:27017/instruqt");
+const database = new Database(process.env.MONGO_URL);
+
 
 router.post("/register", async (req, res) => {
     const username = req.body.username;
@@ -98,6 +109,10 @@ router.post("/login", async (req, res) => {
         store("Error", `${err}`);
         res.redirect("/api/error")
     }
+});
+
+router.get("/getUsers", async (req, res) => {
+    return res.json(await database.getUsers());
 });
 
 //Error Route

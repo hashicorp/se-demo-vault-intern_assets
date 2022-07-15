@@ -57,6 +57,18 @@ module.exports = class Database {
         }
     }
 
+    /**
+     * Get all users from MongoDB
+     */
+    async getUsers() {
+        try {
+            return await User.find();
+        } catch(err) {
+            signale.error("Couldn't Find Users.", err);
+        }
+        
+    }
+
     // /**
     //  * Creates Intern in MongoDB 
     //  * @param {String} firstName 
@@ -121,16 +133,5 @@ module.exports = class Database {
     //     return intern;
     // }
 
-    // /**
-    //  * Get all interns from MongoDB
-    //  */
-    // async getAllInterns() {
-    //     try {
-    //         const interns = await Intern.find();
-    //         return interns;
-    //     } catch(err) {
-    //         signale.error("Couldn't Find Interns.", err);
-    //     }
-        
-    // }
+    
 }
