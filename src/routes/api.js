@@ -1,6 +1,7 @@
 const express = require("express");
 const store = require("store2");
 const router = express.Router();
+const axios = require("axios").default;
 
 const path = require("path");
 
@@ -22,9 +23,6 @@ const vault = new Vault();
 const Database = require("../classes/Database.js");
 const signale = require("signale");
 
-// signale.info("ENV VARIABLES: ", process.env.MONGO_URL);
-
-// const database = new Database("mongodb://localhost:27017/instruqt");
 const database = new Database(process.env.MONGO_URL);
 
 
@@ -37,6 +35,10 @@ router.post("/register", async (req, res) => {
         try {
             if(await database.findUser(username) === null) {
                 database.createUser(username, encryptedString);
+                axios.get("/api/getUsers")
+                .then(() => {
+                    signale.success("Refreshed /getUsers endpoint");
+                })
                 res.redirect("/success");
             }
             else {
