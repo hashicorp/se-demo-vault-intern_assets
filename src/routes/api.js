@@ -5,7 +5,6 @@ const axios = require("axios").default;
 
 const path = require("path");
 
-signale.info("Node Enviroment: " + process.env.NODE_ENV);
 
 if(process.env.NODE_ENV === "production") {
     require("dotenv").config({
@@ -23,7 +22,6 @@ if(process.env.NODE_ENV === "production") {
 const Vault = require("../classes/Vault");
 const vault = new Vault();
 const Database = require("../classes/Database.js");
-const signale = require("signale");
 
 const database = new Database(process.env.MONGO_URL);
 
