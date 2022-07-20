@@ -114,9 +114,9 @@ router.post("/login", async (req, res) => {
 });
 
 router.get("/getUsers", async (req, res) => {
-    setInterval(() => {
-        const users = await database.getUsers();
-        
+    // setInterval(() => {
+    //     const users = await database.getUsers();
+
     return res.json(await database.getUsers());
 });
 
