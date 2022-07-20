@@ -22,6 +22,7 @@ if(process.env.NODE_ENV === "production") {
 const Vault = require("../classes/Vault");
 const vault = new Vault();
 const Database = require("../classes/Database.js");
+const { info } = require("console");
 
 const database = new Database(process.env.MONGO_URL);
 
@@ -113,7 +114,7 @@ router.post("/login", async (req, res) => {
     }
 });
 
-router.post("/storePlainUser", async (req, res) => {
+router.post("/registerPlainUser", async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
@@ -131,6 +132,27 @@ router.post("/storePlainUser", async (req, res) => {
         store("Error", `${err}`);
         res.redirect("/api/error");
     }
+});
+
+router.post("/loginPlainUser", async (req, res) => {
+   const username = req.body.username;
+   const password = req.body.password;
+   
+   try {
+       const user = await database.findUser(username);
+       if (user) {
+            if(user.password === password) {
+                res.redirect("/success");
+            } else {
+                res.redirect("/error");
+            }
+       } else {
+           res.redirect("/error");
+       }
+   } catch (err) {
+       store("Error", `${err}`);
+       res.redirect("/api/error");
+   }
 });
 
 router.get("/getUsers", async (req, res) => {

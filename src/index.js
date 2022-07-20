@@ -25,21 +25,25 @@ app.use(express.urlencoded({
 app.use("/api", apiRouter);
 
 if(port == 3000){
-    signale.info("First entered")
     app.get("/", (req, res) => {
         res.sendFile(path.join(__dirname, "/public/html/home.html"));
     });
+
+    app.get("/success", (req, res) => {
+        res.sendFile(path.join(__dirname, "/public/html/success.html"))
+    })
 } else if (port == 3001) {
-    signale.info("Second entered")
     app.get("/", (req, res) => {
-        res.sendFile(path.join(__dirname, "/public/html/home.html"));
+        res.sendFile(path.join(__dirname, "/public/html/noEncryptHome.html"));
     });
+
+    app.get("/success", (req, res) => {
+        res.sendFile(path.join(__dirname, "/public/html/noEncryptSuccess.html"))
+    })
 }
 
 
-app.get("/success", (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/html/success.html"))
-})
+
 
 app.get("/error", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/html/error.html"))
