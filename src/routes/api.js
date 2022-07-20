@@ -35,10 +35,10 @@ router.post("/register", async (req, res) => {
         try {
             if(await database.findUser(username) === null) {
                 database.createUser(username, encryptedString);
-                axios.get("http://127.0.0.1:3000/api/getUsers")
-                .then(() => {
-                    signale.success("Refreshed /getUsers endpoint");
-                })
+                // axios.get("http://127.0.0.1:3000/api/getUsers")
+                // .then(() => {
+                //     signale.success("Refreshed /getUsers endpoint");
+                // })
                 res.redirect("/success");
             }
             else {
@@ -110,6 +110,26 @@ router.post("/login", async (req, res) => {
     } catch (err) {
         store("Error", `${err}`);
         res.redirect("/api/error")
+    }
+});
+
+router.post("/storePlainUser", async (req, res) => {
+    const username = req.body.username;
+    const password = req.body.password;
+
+    try {
+        if(await database.findUser(username) === null) {
+            database.createUser(username, password);
+            res.redirect("/success");
+        }
+        else {
+            signale.error("User already exists");
+            store("Error", "Username already exists");
+            res.redirect("/error");
+        }
+    } catch (err) {
+        store("Error", `${err}`);
+        res.redirect("/api/error");
     }
 });
 

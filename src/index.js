@@ -1,11 +1,17 @@
 const express = require("express");
 const store = require("store2");
 const app = express();
-const port = 3000;
+const path = require("path");
+const signale = require("signale");
+require("dotenv").config({
+    path: path.join(__dirname, "../.env"),
+});
+const port = process.env.PORT;
+
+signale.info("port: " + port);
 
 const apiRouter = require("./routes/api.js");
 
-const path = require("path");
 
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -18,9 +24,18 @@ app.use(express.urlencoded({
 
 app.use("/api", apiRouter);
 
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/html/home.html"));
-});
+if(port == 3000){
+    signale.info("First entered")
+    app.get("/", (req, res) => {
+        res.sendFile(path.join(__dirname, "/public/html/home.html"));
+    });
+} else if (port == 3001) {
+    signale.info("Second entered")
+    app.get("/", (req, res) => {
+        res.sendFile(path.join(__dirname, "/public/html/home.html"));
+    });
+}
+
 
 app.get("/success", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/html/success.html"))
