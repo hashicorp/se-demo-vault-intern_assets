@@ -1,26 +1,16 @@
 const express = require("express");
-const store = require("store2");
 const app = express();
 const path = require("path");
-const signale = require("signale");
 require("dotenv").config({
     path: path.join(__dirname, "../.env"),
 });
 const port = process.env.PORT;
-
-signale.info("port: " + port);
-
 const apiRouter = require("./routes/api.js");
-
-
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({
     extended: true
 }));
-
-
-
 
 app.use("/api", apiRouter);
 
@@ -42,13 +32,9 @@ if(port == 3000){
     })
 }
 
-
-
-
 app.get("/error", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/html/error.html"))
 })
-
 
 app.listen(port, () => {
     console.log(`Intern Hub listening at http://localhost:${port}`)
