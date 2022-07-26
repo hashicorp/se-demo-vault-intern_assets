@@ -82,6 +82,6 @@ Syed Quadri
 [2]: <https://docs.google.com/document/d/1XFHnyoIBxCUC6yKq2lDr9hai8B6-dfNjGhQVweu9YmY/edit?usp=sharing> "Encryption as a Service - Vault Transit Secrets Engine Documentation"
 [3]: <https://docs.google.com/presentation/d/1DhUmu_bh32tohvc_ON33MY_yEOKnE_jE8KRcvUYfJQA/edit?usp=sharing> "Encryption as a Service - Vault Transit Secrets Engine Presentation"
 [4]: <TBD> "Encryption as a Service - Video Walkthrough"
-[5]: <TBD> "ENcryption as a Service - Assets"
+[5]: <https://github.com/syedQuadri7/internvault_assets> "Encryption as a Service - Assets"
 [6]: <https://hashicorp.wufoo.com/forms/field-requests-products-assets> "Field Request form"
 [7]: <https://hashicorp.slack.com/archives/CGYB4R3NX> "proj-instruct"
