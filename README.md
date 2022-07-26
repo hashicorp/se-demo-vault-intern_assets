@@ -5,7 +5,7 @@
 This demonstration explores the core benefits of Vault's Transit Secrets Engine. We visit 3 different scenarios you may encounter in order to leverage the engine. 
 
 - Scenario 1: Introduction to the Transit Secrets Engine
-- Scenario 2: Unecnrypted Web Application and Database
+- Scenario 2: Unencrypted Web Application and Database
 - Scenario 3: Encrypted Web Application and Database
 
 | Resource | Description |
