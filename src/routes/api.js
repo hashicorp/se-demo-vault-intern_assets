@@ -22,7 +22,6 @@ if(process.env.NODE_ENV === "production") {
 const Vault = require("../classes/Vault");
 const vault = new Vault();
 const Database = require("../classes/Database.js");
-const { info } = require("console");
 
 const database = new Database(process.env.MONGO_URL);
 
