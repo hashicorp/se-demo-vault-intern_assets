@@ -22,7 +22,7 @@ This demonstration explores the core benefits of Vault's Transit Secrets Engine.
 
 Project demonstrates deploying a web application that allows end-user to register/login into the page. When a user registers, their data is processed through Vault OSS, more specifically, using Vault Transit Secrets Engine. This Engine allows us to encrypt/decrypt data, at any given point. In the scope of this project, we send the password to Vault, where it's encrypted. After this stage, the encrypted password is stored in MongoDB, alongside the username in plain text. 
 
-## Getting Started
+## Getting Started (Locally)
 
 ### Dependencies
 
