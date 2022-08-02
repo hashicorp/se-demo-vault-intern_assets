@@ -82,7 +82,7 @@ Syed Quadri
 [1]: <https://play.instruqt.com/hashicorp/tracks/encryption-as-a-service> "Encyption as a Service - Instruqt Track"
 [2]: <https://docs.google.com/document/d/1u77Yqi5vWqEwSHIv01UV6bZDtyITJ9snqY2yXg74Tj4/edit#heading=h.6zciqk55xcx0> "Encryption as a Service - Vault Transit Secrets Engine Documentation"
 [3]: <https://docs.google.com/presentation/d/1NDbTm4L7OoBTwCTq1E6TZkSQChMrMPqGUOcO_V5AL08/edit#slide=id.g13bafb93024_0_0> "Encryption as a Service - Vault Transit Secrets Engine Presentation"
-[4]: <TBD> "Encryption as a Service - Video Walkthrough"
+[4]: <https://drive.google.com/file/d/171jq5b11qS4bCcZ1hBmB4_sKIT71PSGl/view?usp=sharing> "Encryption as a Service - Video Walkthrough"
 [5]: <https://github.com/hashicorp/se-demo-vault-intern_assets> "Encryption as a Service - Assets"
 [6]: <https://hashicorp.wufoo.com/forms/field-requests-products-assets> "Field Request Form"
 [7]: <https://hashicorp.slack.com/archives/CGYB4R3NX> "#proj-instruct"
