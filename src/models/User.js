@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ */
+
 const mongoose = require("mongoose")
 
 const UserSchema = new mongoose.Schema({

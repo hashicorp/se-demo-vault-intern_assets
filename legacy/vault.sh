@@ -1,4 +1,6 @@
 #!/bin/bash
+# Copyright (c) HashiCorp, Inc.
+
 # osascript -e "Terminal"
 #     activate
 #     do script "vault server -dev -dev-root-token-id=root"
