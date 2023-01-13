@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ */
+
 function showPassword(htmlID) {
     var x = document.getElementById(htmlID);
     if (x.type === "password") {

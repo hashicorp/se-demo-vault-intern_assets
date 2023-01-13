@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ */
+
 const express = require("express");
 const store = require("store2");
 const router = express.Router();

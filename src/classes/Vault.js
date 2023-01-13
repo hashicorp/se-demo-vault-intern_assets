@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ */
+
 const axios = require("axios").default;
 const signale = require("signale")
 const vaultOptions = require("../config/vaultOptions.json");
